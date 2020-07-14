@@ -1,17 +1,6 @@
 import React from 'react';
 import '@testing-library/jest-native/extend-expect';
-import {
-  ActivityIndicator,
-  Button,
-  Image,
-  Pressable,
-  Text,
-  TextInput,
-  TouchableNativeFeedback,
-  TouchableHighlight,
-  TouchableOpacity,
-  TouchableWithoutFeedback,
-} from 'react-native';
+import { Button, Image, Text, TextInput } from 'react-native';
 
 import { render, fireEvent, eventMap, getEventHandlerName, wait, cleanup } from '../';
 
