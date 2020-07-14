@@ -51,8 +51,9 @@ jest.doMock('react-native/Libraries/Components/ScrollView/ScrollView', () => {
   return mockScrollView(baseComponent);
 });
 
-jest.doMock('react-native/Libraries/Components/RefreshControl/RefreshControl', () =>
-  jest.requireActual('./mock-refresh-control'),
+jest.doMock(
+  'react-native/Libraries/Components/RefreshControl/RefreshControl',
+  () => RefreshControlMock,
 );
 
 jest.doMock('react-native/Libraries/Components/TextInput/TextInput', () =>
