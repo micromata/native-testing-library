@@ -1,6 +1,6 @@
 import React from 'react';
 import '@testing-library/jest-native/extend-expect';
-import { Button, Image, Text, TextInput } from 'react-native';
+import { Button, Image, Text, TextInput, TouchableHighlight } from 'react-native';
 
 import { render, fireEvent, eventMap, getEventHandlerName, wait, cleanup } from '../';
 
@@ -114,6 +114,17 @@ test('calling a handler if a Button is disabled does not work', () => {
   const handleEvent = jest.fn();
   const { getByText } = render(<Button disabled onPress={handleEvent} title="button" />);
   expect(() => fireEvent.press(getByText('button'))).not.toThrow();
+  expect(handleEvent).toBeCalledTimes(0);
+});
+
+test('calling a handler if a Touchable is disabled does not work', () => {
+  const handleEvent = jest.fn();
+  const { getByText } = render(
+    <TouchableHighlight disabled onPress={handleEvent}>
+      <Text>touchable</Text>
+    </TouchableHighlight>,
+  );
+  fireEvent.press(getByText('touchable'));
   expect(handleEvent).toBeCalledTimes(0);
 });
 
